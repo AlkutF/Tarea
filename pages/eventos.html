@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+    <link rel="stylesheet" href="/styles/navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/styles/estandar.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="/index.html"><img src="/assets/logo.jpg" alt="Logo de la marca"></a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/pages/eventos.html">EVENTOS</a></li>
+                <li><a href="/pages/cultura.html">CULTURA</a></li>
+                <li><a href="/pages/inscripciones.html">INSCRIPCIONES</a></li>
+            </ul>
+        </nav>
+        <a onclick="openNav()" class="menu"><button>Menu</button></a>
+
+        <div id="mobile-menu" class="overlay">
+            <a onclick="closeNav()" href="#" class="close">&times;</a>
+            <div class="overlay-content">
+                <a href="/pages/eventos.html">Eventos</a>
+                <a href="/pages/cultura.html">Cultura</a>
+                <a href="/pages/inscripciones.html">Inscripciones</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="bandera">12/12/2024 - Fiesta de Quito</div>
+        <section class="eventos" id="section">
+            <div class="eventos-item">
+                <div class="event-header">
+                    <h2>Desfile de las instituciones de quito</h2>
+                    <button class="view-more-btn" onclick="openModal('evento1')"><i class="fas fa-eye"></i></button>
+                </div>
+                <p class="event-description">Celebra la fiesta más importante de la ciudad con un colorido desfile de comparsas y danzas.</p>
+            </div>
+            <div class="eventos-item">
+                <div class="event-header">
+                    <h2>Concierto de Música Nacional</h2>
+                    <button class="view-more-btn" onclick="openModal('evento2')"><i class="fas fa-eye"></i></button>
+                </div>
+                <p class="event-description">Disfruta de los mejores artistas nacionales en un concierto al aire libre.</p>
+            </div>
+
+        </section>
+
+        <div class="bandera">13/12/2024 - Fiesta de Quito</div>
+        <section class="eventos" id="section">
+            <div class="eventos-item">
+                <div class="event-header">
+                    <h2>Feria Gastronómica Quiteña</h2>
+                    <button class="view-more-btn" onclick="openModal('evento3')"><i class="fas fa-eye"></i></button>
+                </div>
+                <p class="event-description">Descubre los sabores más tradicionales de Quito en una feria llena de comida típica.</p>
+            </div>
+            <div class="eventos-item">
+                <div class="event-header">
+                    <h2>Concurso de Bailes Populares</h2>
+                    <button class="view-more-btn" onclick="openModal('evento6')"><i class="fas fa-eye"></i></button>
+                </div>
+                <p class="event-description">Participa en un concurso lleno de música y baile popular ecuatoriano.</p>
+            </div>
+
+        </section>
+
+        <div class="bandera">14/12/2024 - Fiesta de Quito</div>
+        <section class="eventos" id="section">
+            <div class="eventos-item">
+                <div class="event-header">
+                    <h2>Ballet Folklórico Ecuatoriano</h2>
+                    <button class="view-more-btn" onclick="openModal('evento4')"><i class="fas fa-eye"></i></button>
+                </div>
+                <p class="event-description">Una presentación vibrante de danzas folklóricas que muestran la riqueza cultural de Quito.</p>
+            </div>
+        </section>
+
+        <div class="bandera">15/12/2024 - Fiesta de Quito</div>
+        <section class="eventos" id="section">
+            <div class="eventos-item">
+                <div class="event-header">
+                    <h2>Exposición de Arte Popular</h2>
+                    <button class="view-more-btn" onclick="openModal('evento7')"><i class="fas fa-eye"></i></button>
+                </div>
+                <p class="event-description">Una muestra de arte popular ecuatoriano con trabajos de artistas locales.</p>
+            </div>
+        </section>
+
+        <!-- Modal -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <div id="modal-info">
+                    
+                    <!-- Contenido dinámico del evento se cargará aquí -->
+                </div>
+               
+            </div>
+        </div>
+
+    </main>
+
+    <script type="text/javascript" src="/scripts/navbar.js"></script>
+    <script type="text/javascript">
+        function openModal(eventId) {
+            const modal = document.getElementById("modal");
+            const modalInfo = document.getElementById("modal-info");
+
+            let eventContent = '';
+
+            if (eventId === 'evento1') {
+                eventContent = `
+                    <button class="close" onclick="closeModal('historia1')">&times;</button>
+                    <h2>Desfile de las instituciones de quito</h2>
+                    <p><strong>Fecha y Hora:</strong> 12 de diciembre, 10:00 AM</p>
+                    <p><strong>Descripción:</strong> Celebra la fiesta más importante de la ciudad con un colorido desfile de comparsas y danzas.</p>
+                    <p><strong>Lugar:</strong> Centro Histórico de Quito.</p>
+                    <img src="/assets/Eventos/Desfile.avif" alt="" style="width: 80%; height: auto ; margin-left: 10%;">
+                    
+                `;
+            } else if (eventId === 'evento2') {
+                eventContent = `
+                       <button class="close" onclick="closeModal('historia1')">&times;</button>
+                    <h2>Concierto de Música Nacional</h2>
+                    <p><strong>Fecha y Hora:</strong> 12 de diciembre, 6:00 PM</p>
+                    <p><strong>Descripción:</strong> Disfruta de los mejores artistas nacionales en un concierto al aire libre.</p>
+                    <p><strong>Lugar:</strong> Plaza de la Independencia.</p>
+                    <img src="/assets/Eventos/Concierto.jpg" alt="" style="width: 80%; height: auto ; margin-left: 10%;">
+                `;
+            } else if (eventId === 'evento3') {
+                eventContent = `
+                       <button class="close" onclick="closeModal('historia1')">&times;</button>
+                    <h2>Feria Gastronómica Quiteña</h2>
+                    <p><strong>Fecha y Hora:</strong> 13 de diciembre, 11:00 AM</p>
+                    <p><strong>Descripción:</strong> Descubre los sabores más tradicionales de Quito en una feria llena de comida típica.</p>
+                    <p><strong>Lugar:</strong> Parque La Carolina.</p>
+                    <img src="/assets/Eventos/Gastronomia.jpg" alt="" style="width: 80%; height: auto ; margin-left: 10%;">
+                `;
+            } else if (eventId === 'evento4') {
+                eventContent = `
+                       <button class="close" onclick="closeModal('historia1')">&times;</button>
+                    <h2>Ballet Folklórico Ecuatoriano</h2>
+                    <p><strong>Fecha y Hora:</strong> 12 de diciembre, 8:00 PM</p>
+                    <p><strong>Descripción:</strong> Una presentación vibrante de danzas folklóricas que muestran la riqueza cultural de Quito.</p>
+                    <p><strong>Lugar:</strong> Teatro Sucre.</p>
+                    <img src="/assets/Eventos/BalletFolklórico.jpg" alt="" style="width: 80%; height: auto ; margin-left: 10%;">
+                `;
+            } else if (eventId === 'evento6') {
+                eventContent = `
+                       <button class="close" onclick="closeModal('historia1')">&times;</button>
+                    <h2>Concurso de Bailes Populares</h2>
+                    <p><strong>Fecha y Hora:</strong> 13 de diciembre, 4:00 PM</p>
+                    <p><strong>Descripción:</strong> Participa en un concurso lleno de música y baile popular ecuatoriano.</p>
+                    <p><strong>Lugar:</strong> Parque El Ejido.</p>
+                    <img src="/assets/Eventos/Bailes.jpg" alt="" style="width: 80%; height: auto ; margin-left: 10%;">
+                `;
+            } else if (eventId === 'evento7') {
+                eventContent = `
+                       <button class="close" onclick="closeModal('historia1')">&times;</button>
+                    <h2>Exposición de Arte Popular</h2>
+                    <p><strong>Fecha y Hora:</strong> 13 de diciembre, 3:00 PM</p>
+                    <p><strong>Descripción:</strong> Una muestra de arte popular ecuatoriano con trabajos de artistas locales.</p>
+                    <p><strong>Lugar:</strong> Museo de Arte Contemporáneo.</p>
+                    <img src="/assets/Eventos/Arte.jpg" alt="" style="width: 80%; height: auto ; margin-left: 10%;">
+                `;
+            } else if (eventId === 'evento8') {
+                eventContent = `
+                       <button class="close" onclick="closeModal('historia1')">&times;</button>
+                    <h2>Festival de la Canción Andina</h2>
+                    <p><strong>Fecha y Hora:</strong> 14 de diciembre, 7:00 PM</p>
+                    <p><strong>Descripción:</strong> Vibrante festival con lo mejor de la música andina en un evento gratuito al aire libre.</p>
+                    <p><strong>Lugar:</strong> Plaza de Santo Domingo.</p>
+                    <img src="/assets/Eventos/Andina.jpg" alt="" style="width: 80%; height: auto ; margin-left: 10%;">
+                `;
+            }
+
+            modalInfo.innerHTML = eventContent;
+            modal.style.display = "flex";
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("modal");
+            modal.style.display = "none";
+        }
+
+    </script>
+</body>
+</html>

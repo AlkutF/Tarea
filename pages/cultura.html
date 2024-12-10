@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+    <link rel="stylesheet" href="/styles/navbar.css">
+    <link rel="stylesheet" href="/styles/modal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/styles/estandar.css">
+    <style>
+
+        .cultura {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .cultura-item {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 94%;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .cultura-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .cultura-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .cultura-header h2 {
+            font-size: 18px;
+            margin: 0;
+            color: #333;
+        }
+
+        .cultura-header .view-more-btn {
+            background: none;
+            border: none;
+            color: #CC0000;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .cultura-header .view-more-btn:hover {
+            color: #A00000;
+        }
+
+        .cultura-description {
+            font-size: 14px;
+            color: #555;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="/index.html"><img src="/assets/logo.jpg" alt="Logo de la marca"></a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/pages/eventos.html">EVENTOS</a></li>
+                <li><a href="/pages/cultura.html">CULTURA</a></li>
+                <li><a href="/pages/inscripciones.html">INSCRIPCIONES</a></li>
+            </ul>
+        </nav>
+        <a onclick="openNav()" class="menu"><button>Menu</button></a>
+
+        <div id="mobile-menu" class="overlay">
+            <a onclick="closeNav()" href="#" class="close">&times;</a>
+            <div class="overlay-content">
+                <a href="/pages/eventos.html">Eventos</a>
+                <a href="/pages/cultura.html">Cultura</a>
+                <a href="/pages/inscripciones.html">Inscripciones</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- Simbolismos de Quito -->
+        <div class="bandera" id="simbolismos">Simbolismos de Quito</div>
+        <section class="cultura">
+            <div class="cultura-item">
+                <div class="cultura-header">
+                    <h2>Chullas Quiteñas</h2>
+                    <button class="view-more-btn" onclick="openModal('simbolismo1')"><i class="fas fa-eye"></i></button>
+                </div>
+                <p class="cultura-description">Los Chullas Quiteños representan el carácter audaz y valiente de los quiteños, un símbolo de fortaleza y orgullo.</p>
+            </div>
+            <div class="cultura-item">
+                <div class="cultura-header">
+                    <h2>Chivas Quiteñas</h2>
+                    <button class="view-more-btn" onclick="openModal('simbolismo2')"><i class="fas fa-eye"></i></button>
+                </div>
+                <p class="cultura-description">Las Chivas Quiteñas son una parte fundamental del transporte tradicional en Quito, conectando la ciudad con sus alrededores.</p>
+            </div>
+            <div class="cultura-item">
+                <div class="cultura-header">
+                    <h2>Canelazo</h2>
+                    <button class="view-more-btn" onclick="openModal('simbolismo3')"><i class="fas fa-eye"></i></button>
+                </div>
+                <p class="cultura-description">El Canelazo es una bebida caliente tradicional que se disfruta en las fiestas de Quito, especialmente en las noches frías de diciembre.</p>
+            </div>
+        </section>
+
+        <!-- Historia de Quito -->
+        <div class="bandera" id="historia">Historia de Quito</div>
+        <section class="cultura">
+            <div class="cultura-item">
+                <div class="cultura-header">
+                    <h2>Fundación de Quito</h2>
+                    <button class="view-more-btn" onclick="openModal('historia1')"><i class="fas fa-eye"></i></button>
+                </div>
+                <p class="cultura-description">La historia de la fundación de Quito es fundamental para comprender su identidad.</p>
+            </div>
+            <div class="cultura-item">
+                <div class="cultura-header">
+                    <h2>Quito en la Colonia</h2>
+                    <button class="view-more-btn" onclick="openModal('historia2')"><i class="fas fa-eye"></i></button>
+                </div>
+                <p class="cultura-description">Quito jugó un papel importante durante la época colonial de Ecuador.</p>
+            </div>
+        </section>
+
+        <!-- Iglesias de Quito -->
+        <div class="bandera" id="iglesias">Iglesias de Quito</div>
+        <section class="cultura">
+            <div class="cultura-item">
+                <div class="cultura-header">
+                    <h2>Iglesia de la Compañía</h2>
+                    <button class="view-more-btn" onclick="openModal('iglesia1')"><i class="fas fa-eye"></i></button>
+                </div>
+                <p class="cultura-description">La Iglesia de la Compañía es uno de los mayores ejemplos de arquitectura colonial en Quito.</p>
+            </div>
+            <div class="cultura-item">
+                <div class="cultura-header">
+                    <h2>Basílica del Voto Nacional</h2>
+                    <button class="view-more-btn" onclick="openModal('iglesia2')"><i class="fas fa-eye"></i></button>
+                </div>
+                <p class="cultura-description">La Basílica es una de las estructuras religiosas más impresionantes de Quito.</p>
+            </div>
+        </section>
+
+        <!-- Gastronomía Quiteña -->
+        <div class="bandera" id="gastronomia">Gastronomía Quiteña</div>
+        <section class="cultura">
+            <div class="cultura-item">
+                <div class="cultura-header">
+                    <h2>Locro Quiteño</h2>
+                    <button class="view-more-btn" onclick="openModal('gastronomia1')"><i class="fas fa-eye"></i></button>
+                </div>
+                <p class="cultura-description">El locro es una sopa tradicional de la región, hecha a base de papas y queso.</p>
+            </div>
+            <div class="cultura-item">
+                <div class="cultura-header">
+                    <h2>Hornado</h2>
+                    <button class="view-more-btn" onclick="openModal('gastronomia2')"><i class="fas fa-eye"></i></button>
+                </div>
+                <p class="cultura-description">El hornado es un plato típico de cerdo asado con un toque especial de comino.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal para mostrar detalles de cada sección -->
+    <div id="simbolismo1" class="modal">
+        <div class="modal-content">
+            <button class="close" onclick="closeModal('simbolismo1')">&times;</button>
+            <h3>Chullas Quiteñas</h3>
+            <p>Los Chullas Quiteños representan el carácter audaz y valiente de los quiteños, un símbolo de fortaleza y orgullo.</p>
+            <img src="/assets/Cultura/Chullas.jpg" alt="" style="width: 80%; height: auto ; margin-left: 10%;">
+        </div>
+    </div>
+
+    <div id="simbolismo2" class="modal">
+        <div class="modal-content">
+            <button class="close" onclick="closeModal('simbolismo2')">&times;</button>
+            <h3>Chivas Quiteñas</h3>
+            <p>Las Chivas Quiteñas son una parte fundamental del transporte tradicional en Quito, conectando la ciudad con sus alrededores.</p>
+            <img src="/assets/Cultura/Chivas.jpg" alt="" style="width: 80%; height: auto ; margin-left: 10%;">
+        </div>
+    </div>
+
+    <div id="simbolismo3" class="modal">
+        <div class="modal-content">
+            <button class="close" onclick="closeModal('simbolismo3')">&times;</button>
+            <h3>Canelazo</h3>
+            <p>El Canelazo es una bebida caliente tradicional que se disfruta en las fiestas de Quito, especialmente en las noches frías de diciembre.</p>
+            <img src="/assets/Cultura/Canelazo.jpg" alt="" style="width: 80%; height: auto ; margin-left: 10%;">
+        </div>
+    </div>
+
+    <div id="historia1" class="modal">
+        <div class="modal-content">
+            <button class="close" onclick="closeModal('historia1')">&times;</button>
+            <h3>Fundación de Quito</h3>
+            <p>La historia de la fundación de Quito es fundamental para comprender su identidad.</p>
+            <img src="/assets/Cultura/Fundacion.jpg" alt="" style="width: 80%; height: auto ; margin-left: 10%;">
+        </div>
+    </div>
+
+    <div id="historia2" class="modal">
+        <div class="modal-content">
+            <button class="close" onclick="closeModal('historia2')">&times;</button>
+            <h3>Quito en la Colonia</h3>
+            <p>Quito jugó un papel importante durante la época colonial de Ecuador.</p>
+            <img src="/assets/Cultura/Colonia.jpg" alt="" style="width: 80%; height: auto ; margin-left: 10%;">
+        </div>
+    </div>
+
+    <div id="iglesia1" class="modal">
+        <div class="modal-content">
+            <button class="close" onclick="closeModal('iglesia1')">&times;</button>
+            <h3>Iglesia de la Compañía</h3>
+            <p>La Iglesia de la Compañía es uno de los mayores ejemplos de arquitectura colonial en Quito.</p>
+            <img src="/assets/Cultura/Compañia.jpg" alt="" style="width: 80%; height: auto ; margin-left: 10%;">
+        </div>
+    </div>
+
+    <div id="iglesia2" class="modal">
+        <div class="modal-content">
+            <button class="close" onclick="closeModal('iglesia2')">&times;</button>
+            <h3>Basílica del Voto Nacional</h3>
+            <p>La Basílica es una de las estructuras religiosas más impresionantes de Quito.</p>
+            <img src="/assets/Cultura/Voto.jpg" alt="" style="width: 80%; height: auto ; margin-left: 10%;">
+        </div>
+    </div>
+
+    <div id="gastronomia1" class="modal">
+        <div class="modal-content">
+            <button class="close" onclick="closeModal('gastronomia1')">&times;</button>
+            <h3>Locro Quiteño</h3>
+            <p>El locro es una sopa tradicional de la región, hecha a base de papas y queso.</p>
+            <img src="/assets/Cultura/locro.jpg" alt="" style="width: 80%; height: auto ; margin-left: 10%;">
+        </div>
+    </div>
+
+    <div id="gastronomia2" class="modal">
+        <div class="modal-content">
+            <button class="close" onclick="closeModal('gastronomia2')">&times;</button>
+            <h3>Hornado</h3>
+            <p>El hornado es un plato típico de cerdo asado con un toque especial de comino.</p>
+            <img src="/assets/Cultura/hornado.jpg" alt="" style="width: 80%; height: auto ; margin-left: 10%;">
+        </div>
+    </div>
+
+    <script src="/scripts/navbar.js"></script>
+    <script>
+        function openModal(id) {
+            document.getElementById(id).style.display = "flex";
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = "none";
+        }
+    </script>
+</body>
+</html>

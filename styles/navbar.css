@@ -1,0 +1,148 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    background-color: transparent; 
+    min-width: 400px;
+}
+
+.header {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff; 
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height:60px;
+    padding: 5px 10%;
+    backdrop-filter: blur(10px);
+}
+
+.header .logo {
+    cursor: pointer;
+    margin-right: auto;
+}
+
+.header .logo img {
+    margin-top: 5px;
+    height: 50px;
+    width: auto;
+    transition: all 0.3s;
+}
+
+.header .logo img:hover {
+    transform: scale(1.2);
+}
+
+.header .nav-links {
+    list-style: none;
+    font-weight: 700;
+    color: #fbe9e7; 
+}
+
+.header .nav-links li {
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.header .nav-links a {
+    font-weight: 700;
+    color: #080606; 
+    text-decoration: none;
+    margin-right: 40px;
+}
+
+.header .nav-links a:hover {
+    color: #003366;
+    transform: scale(1.1);
+}
+
+
+.header .btn button,
+.header .menu button {
+    margin-left: 20px;
+    font-weight: 700;
+    color: #4a90e2; 
+    padding: 9px 25px;
+    background: transparent; 
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.header .btn button:hover,
+.header .menu button:hover {
+    background-color: #D32F2F; 
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+
+.menu {
+    display: none;
+}
+
+
+@media screen and (max-width: 1035px) {
+    .nav-links,
+    .btn {
+        display: none;
+    }
+    .menu {
+        display: inherit;
+    }
+
+
+}
+
+.header .overlay {
+    min-height: 100vh;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    background-color: #333333;
+    overflow: hidden;
+}
+
+.header .overlay .overlay-content {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header .overlay a {
+    padding: 15px;
+    font-size: 36px;
+    display: block;
+    font-weight: 700;
+    color: #fbe9e7; 
+    transition: all 0.3s ease 0s;
+    text-decoration: none;
+
+}
+
+.header .overlay a:hover {
+    color: #f06292; 
+}
+
+.header .overlay .close {
+    position: absolute;
+    right: 45px;
+    font-size: 65px;
+    color: #fbe9e7; 
+}
+
+
